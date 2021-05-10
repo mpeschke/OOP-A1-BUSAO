@@ -3,7 +3,7 @@
     Purpose: Defines the entry point for the application.
 
     @author Matheus Peschke
-    @version 2.0.0 2020-05-21
+    @version 1.0.0 2021-05-09
 */
 #define BOOST_TEST_MODULE "BusaoBLL"
 #include "stdafx.h"

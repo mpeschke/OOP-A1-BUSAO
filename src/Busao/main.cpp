@@ -1,10 +1,8 @@
 /**
     main.cpp
-    Purpose: Captures the parameters via command line, instantiate the OptimalDVDSelectionBLL
-    objects and generate/print the optimal combination.
 
     @author Matheus Peschke
-    @version 2.0.0 2020-05-21
+    @version 1.0.0 2021-05-09
 */
 #include "stdafx.h"
 

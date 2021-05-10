@@ -18,29 +18,30 @@
 */
 BOOST_AUTO_TEST_SUITE(suite_onibus_inicializacao)
 
-BOOST_AUTO_TEST_CASE(test_onibus_metodo_inicializador)
-{
-    BOOST_TEST ( false );
-}
-
 BOOST_AUTO_TEST_CASE(test_onibus_inicializa_sucesso)
 {
-    BOOST_TEST ( false );
+    BOOST_TEST_MESSAGE( "TEST CASE 2. SUCESSO: Deve haver um método inicial que instancie a classe Onibus" );
+    BOOST_TEST_MESSAGE( "TEST CASE 3. SUCESSO: A classe Onibus deve inicializar com o número de pontos, a capacidade para pessoas sentadas e a capacidade para pessoas em pé" );
+    Onibus onibus = Onibus::instantiate(1U, 1U, 1U);
+    BOOST_TEST ( true );
 }
 
 BOOST_AUTO_TEST_CASE(test_onibus_inicializa_numero_pontos_falha)
 {
-    BOOST_TEST ( false );
+    BOOST_TEST_MESSAGE( "TEST CASE 3. EXCEÇÃO: A classe Onibus deve inicializar com o número de pontos, a capacidade para pessoas sentadas e a capacidade para pessoas em pé" );
+    BOOST_REQUIRE_THROW(Onibus::instantiate(0U, 1U, 1U), CExcecao);
 }
 
 BOOST_AUTO_TEST_CASE(test_onibus_inicializa_capacidade_sentadas_falha)
 {
-    BOOST_TEST ( false );
+    BOOST_TEST_MESSAGE( "TEST CASE 3. EXCEÇÃO: A classe Onibus deve inicializar com o número de pontos, a capacidade para pessoas sentadas e a capacidade para pessoas em pé" );
+    BOOST_REQUIRE_THROW(Onibus::instantiate(1U, 0U, 1U), CExcecao);
 }
 
 BOOST_AUTO_TEST_CASE(test_onibus_inicializa_capacidade_empe_falha)
 {
-    BOOST_TEST ( false );
+    BOOST_TEST_MESSAGE( "TEST CASE 3. EXCEÇÃO: A classe Onibus deve inicializar com o número de pontos, a capacidade para pessoas sentadas e a capacidade para pessoas em pé" );
+    BOOST_REQUIRE_THROW(Onibus::instantiate(1U, 1U, 0U), CExcecao);
 }
 
 BOOST_AUTO_TEST_SUITE_END()
