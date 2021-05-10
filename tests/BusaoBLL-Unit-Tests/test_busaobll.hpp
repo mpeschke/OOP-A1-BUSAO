@@ -56,22 +56,45 @@ BOOST_AUTO_TEST_SUITE(suite_onibus_passageiros_get_set)
 
 BOOST_AUTO_TEST_CASE(test_onibus_passageiros_get_set_sem_passageiros)
 {
-    BOOST_TEST ( false );
+    Onibus onibus = Onibus::instantiate(1U, 1U, 1U);
+    BOOST_TEST_MESSAGE( "TEST CASE 4. SUCESSO: Onibus inicia primeira volta sem passageiros." );
+    BOOST_TEST ( onibus.get_passageiros().size() == 0U );
 }
 
 BOOST_AUTO_TEST_CASE(test_onibus_passageiros_get_set_passageiro_normal)
 {
-    BOOST_TEST ( false );
+    Onibus onibus = Onibus::instantiate(1U, 1U, 1U);
+    Bilhete bilhete = Bilhete::Normal;
+    Passageiro passageiro = Passageiro::instantiate(bilhete);
+    onibus.Entrar(passageiro);
+    BOOST_TEST_MESSAGE( "TEST CASE 4. SUCESSO: Onibus pega passageiro com bilhete Normal." );
+    BOOST_TEST ( onibus.get_passageiros().size() == 1U );
+    BOOST_TEST_MESSAGE( "TEST CASE 5. SUCESSO: A classe deve identificar o tipo de passagem de cada passageiro (Normal)." );
+    BOOST_TEST ( onibus.get_passageiros()[0].get_bilhete() == Bilhete::Normal );
 }
 
 BOOST_AUTO_TEST_CASE(test_onibus_passageiros_get_set_passageiro_idoso)
 {
-    BOOST_TEST ( false );
+    Onibus onibus = Onibus::instantiate(1U, 1U, 1U);
+    Bilhete bilhete = Bilhete::Idoso;
+    Passageiro passageiro = Passageiro::instantiate(bilhete);
+    onibus.Entrar(passageiro);
+    BOOST_TEST_MESSAGE( "TEST CASE 4. SUCESSO: Onibus pega passageiro com bilhete Idoso." );
+    BOOST_TEST ( onibus.get_passageiros().size() == 1U );
+    BOOST_TEST_MESSAGE( "TEST CASE 5. SUCESSO: A classe deve identificar o tipo de passagem de cada passageiro (Idoso)." );
+    BOOST_TEST ( onibus.get_passageiros()[0].get_bilhete() == Bilhete::Idoso );
 }
 
 BOOST_AUTO_TEST_CASE(test_onibus_passageiros_get_set_passageiro_estudante)
 {
-    BOOST_TEST ( false );
+    Onibus onibus = Onibus::instantiate(1U, 1U, 1U);
+    Bilhete bilhete = Bilhete::Estudante;
+    Passageiro passageiro = Passageiro::instantiate(bilhete);
+    onibus.Entrar(passageiro);
+    BOOST_TEST_MESSAGE( "TEST CASE 4. SUCESSO: Onibus pega passageiro com bilhete Estudante." );
+    BOOST_TEST ( onibus.get_passageiros().size() == 1U );
+    BOOST_TEST_MESSAGE( "TEST CASE 5. SUCESSO: A classe deve identificar o tipo de passagem de cada passageiro (Estudante)." );
+    BOOST_TEST ( onibus.get_passageiros()[0].get_bilhete() == Bilhete::Estudante );
 }
 
 BOOST_AUTO_TEST_SUITE_END()

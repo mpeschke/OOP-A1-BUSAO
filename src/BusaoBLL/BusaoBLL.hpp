@@ -9,7 +9,8 @@
 
 #include <string>
 #include <vector>
-#include <fstream>
+#include <list>
+#include "Passageiro.hpp"
 
 namespace BLL {
 
@@ -18,12 +19,18 @@ protected:
     unsigned int m_pontos;
     unsigned int m_bancos;
     unsigned int m_empe;
+    std::vector<Passageiro> m_passageiros;
+    std::list<Bilhete> m_bilhetes;
     Onibus();
     Onibus(const unsigned int pontos, const unsigned int bancos, const unsigned int empe);
 public:
     unsigned int get_pontos();
     unsigned int get_bancos();
     unsigned int get_empe();
+    const std::vector<Passageiro>& get_passageiros() const;
+    const std::list<Bilhete>& get_bilhetes() const;
+    void Entrar(const Passageiro& passageiro);
+    void Sair(const Passageiro& passageiro);
 /**
     Instancia um objeto da classe Onibus.
 
