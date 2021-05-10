@@ -25,9 +25,12 @@ public:
     unsigned int get_bancos();
     unsigned int get_empe();
 /**
-    Return a vector of all subdirectories inside a directory.
+    Instancia um objeto da classe Onibus.
 
-    @return vector of CDirectoy objects.
+    @return Objeto da classe Onibus.
+    @param pontos número de pontos em que o circular pára.
+    @param bancos número de bancos máximos para sentar passageiros.
+    @param empe número máximo de passageiros em pé no ônibus.
 */
     static Onibus instantiate(const unsigned int pontos, const unsigned int bancos, const unsigned int empe);
 public:
