@@ -26,7 +26,7 @@ Obs.: Encapsular todos os atributos da classe (criar os métodos set e get). Pr
 
 Lembre-se! O onibus percorre a linha, então a rotina de teste da classe deve também considerar a viagem, podendo disponibilizar os dados a cada chegada no ponto final.
 
-# Identificação dos Testes Unitários
+# Identificação dos Cenários de Testes
 
 
 ## 1. Nome da classe é Onibus

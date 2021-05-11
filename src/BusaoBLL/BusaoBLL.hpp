@@ -19,18 +19,30 @@ protected:
     unsigned int m_pontos;
     unsigned int m_bancos;
     unsigned int m_empe;
+    unsigned int m_voltas;
+    unsigned int m_ponto;
+    unsigned int m_pedirampradescer;
     std::vector<Passageiro> m_passageiros;
     std::list<Bilhete> m_bilhetes;
     Onibus();
     Onibus(const unsigned int pontos, const unsigned int bancos, const unsigned int empe);
 public:
-    unsigned int get_pontos();
-    unsigned int get_bancos();
-    unsigned int get_empe();
+    unsigned int get_pontos() const;
+    unsigned int get_bancos() const;
+    unsigned int get_empe() const;
+    unsigned int get_voltas() const;
+    unsigned int get_ponto() const;
     const std::vector<Passageiro>& get_passageiros() const;
     const std::list<Bilhete>& get_bilhetes() const;
     void Entrar(const Passageiro& passageiro);
-    void Sair(const Passageiro& passageiro);
+    void Sair();
+    unsigned int ContarTipoBilhetes(const Bilhete& tipo) const;
+    void Pedirparadescer(const unsigned int passageiros);
+    unsigned int Numerodeviagens() const;
+    void Passarnoproximoponto();
+    unsigned int PassageirosEmPe() const;
+    unsigned int PassageirosSentados() const;
+    
 /**
     Instancia um objeto da classe Onibus.
 
