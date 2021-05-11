@@ -51,7 +51,7 @@ public:
     @param bancos número de bancos máximos para sentar passageiros.
     @param empe número máximo de passageiros em pé no ônibus.
 */
-    static Onibus instantiate(const unsigned int pontos, const unsigned int bancos, const unsigned int empe);
+    static Onibus Inicializar(const unsigned int pontos, const unsigned int bancos, const unsigned int empe);
 public:
     virtual ~Onibus();
 };

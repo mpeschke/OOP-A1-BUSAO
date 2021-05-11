@@ -22,26 +22,26 @@ BOOST_AUTO_TEST_CASE(test_onibus_inicializa_sucesso)
 {
     BOOST_TEST_MESSAGE( "TEST CENÁRIO 2. Deve haver um método inicial que instancie a classe Onibus" );
     BOOST_TEST_MESSAGE( "TEST CENÁRIO 3. A classe Onibus deve inicializar com o número de pontos, a capacidade para pessoas sentadas e a capacidade para pessoas em pé" );
-    Onibus onibus = Onibus::instantiate(2U, 1U, 1U);
+    Onibus onibus = Onibus::Inicializar(2U, 1U, 1U);
     BOOST_TEST ( true );
 }
 
 BOOST_AUTO_TEST_CASE(test_onibus_inicializa_numero_pontos_falha)
 {
     BOOST_TEST_MESSAGE( "TEST CENÁRIO 3. A classe Onibus deve inicializar com o número de pontos, a capacidade para pessoas sentadas e a capacidade para pessoas em pé" );
-    BOOST_REQUIRE_THROW(Onibus::instantiate(0U, 2U, 2U), CExcecao);
+    BOOST_REQUIRE_THROW(Onibus::Inicializar(0U, 2U, 2U), CExcecao);
 }
 
 BOOST_AUTO_TEST_CASE(test_onibus_inicializa_capacidade_sentadas_falha)
 {
     BOOST_TEST_MESSAGE( "TEST CENÁRIO 3. A classe Onibus deve inicializar com o número de pontos, a capacidade para pessoas sentadas e a capacidade para pessoas em pé" );
-    BOOST_REQUIRE_THROW(Onibus::instantiate(2U, 0U, 2U), CExcecao);
+    BOOST_REQUIRE_THROW(Onibus::Inicializar(2U, 0U, 2U), CExcecao);
 }
 
 BOOST_AUTO_TEST_CASE(test_onibus_inicializa_capacidade_empe_falha)
 {
     BOOST_TEST_MESSAGE( "TEST CENÁRIO 3. A classe Onibus deve inicializar com o número de pontos, a capacidade para pessoas sentadas e a capacidade para pessoas em pé" );
-    BOOST_REQUIRE_THROW(Onibus::instantiate(2U, 2U, 0U), CExcecao);
+    BOOST_REQUIRE_THROW(Onibus::Inicializar(2U, 2U, 0U), CExcecao);
 }
 
 BOOST_AUTO_TEST_SUITE_END()
@@ -56,14 +56,14 @@ BOOST_AUTO_TEST_SUITE(suite_onibus_passageiros_get_set)
 
 BOOST_AUTO_TEST_CASE(test_onibus_passageiros_get_set_sem_passageiros)
 {
-    Onibus onibus = Onibus::instantiate(2U, 1U, 1U);
+    Onibus onibus = Onibus::Inicializar(2U, 1U, 1U);
     BOOST_TEST_MESSAGE( "TEST CENÁRIO 4. Onibus inicia primeira volta sem passageiros." );
     BOOST_TEST ( onibus.get_passageiros().size() == 0U );
 }
 
 BOOST_AUTO_TEST_CASE(test_onibus_passageiros_get_set_passageiro_normal)
 {
-    Onibus onibus = Onibus::instantiate(2U, 1U, 1U);
+    Onibus onibus = Onibus::Inicializar(2U, 1U, 1U);
     Bilhete bilhete = Bilhete::Normal;
     Passageiro passageiro = Passageiro::instantiate(bilhete);
     onibus.Entrar(passageiro);
@@ -75,7 +75,7 @@ BOOST_AUTO_TEST_CASE(test_onibus_passageiros_get_set_passageiro_normal)
 
 BOOST_AUTO_TEST_CASE(test_onibus_passageiros_get_set_passageiro_idoso)
 {
-    Onibus onibus = Onibus::instantiate(2U, 1U, 1U);
+    Onibus onibus = Onibus::Inicializar(2U, 1U, 1U);
     Bilhete bilhete = Bilhete::Idoso;
     Passageiro passageiro = Passageiro::instantiate(bilhete);
     onibus.Entrar(passageiro);
@@ -87,7 +87,7 @@ BOOST_AUTO_TEST_CASE(test_onibus_passageiros_get_set_passageiro_idoso)
 
 BOOST_AUTO_TEST_CASE(test_onibus_passageiros_get_set_passageiro_estudante)
 {
-    Onibus onibus = Onibus::instantiate(2U, 1U, 1U);
+    Onibus onibus = Onibus::Inicializar(2U, 1U, 1U);
     Bilhete bilhete = Bilhete::Estudante;
     Passageiro passageiro = Passageiro::instantiate(bilhete);
     onibus.Entrar(passageiro);
@@ -106,7 +106,7 @@ BOOST_AUTO_TEST_SUITE(suite_onibus_atributos_ponto_final)
 
 BOOST_AUTO_TEST_CASE(test_onibus_atributos_ponto_inicial)
 {
-    Onibus onibus = Onibus::instantiate(2U, 1U, 1U);
+    Onibus onibus = Onibus::Inicializar(2U, 1U, 1U);
     Bilhete bilhete = Bilhete::Estudante;
     Passageiro passageiro = Passageiro::instantiate(bilhete);
     onibus.Entrar(passageiro);
@@ -123,7 +123,7 @@ BOOST_AUTO_TEST_CASE(test_onibus_atributos_ponto_final)
     const unsigned int bancos = 1U;
     const unsigned int empe = 1U;
     
-    Onibus onibus = Onibus::instantiate(pontos, bancos, empe);
+    Onibus onibus = Onibus::Inicializar(pontos, bancos, empe);
     Bilhete bilhete = Bilhete::Estudante;
     Passageiro passageiro = Passageiro::instantiate(bilhete);
     onibus.Entrar(passageiro);
@@ -152,7 +152,7 @@ BOOST_AUTO_TEST_SUITE(suite_onibus_atributos_pontos)
 
 BOOST_AUTO_TEST_CASE(test_onibus_passageiros_empe_ponto_n)
 {
-    Onibus onibus = Onibus::instantiate(2U, 1U, 1U);
+    Onibus onibus = Onibus::Inicializar(2U, 1U, 1U);
     Bilhete bilhete = Bilhete::Estudante;
     Passageiro passageiro = Passageiro::instantiate(bilhete);
     onibus.Entrar(passageiro);
@@ -187,7 +187,7 @@ BOOST_AUTO_TEST_SUITE(suite_onibus_passageiros_subir_descer)
 
 BOOST_AUTO_TEST_CASE(test_onibus_passageiros_subir_passageiro_empe_nao_disponiveis)
 {
-    Onibus onibus = Onibus::instantiate(2U, 1U, 1U);
+    Onibus onibus = Onibus::Inicializar(2U, 1U, 1U);
     Bilhete bilhete = Bilhete::Estudante;
     Passageiro passageiro = Passageiro::instantiate(bilhete);
     onibus.Entrar(passageiro);
@@ -200,7 +200,7 @@ BOOST_AUTO_TEST_CASE(test_onibus_passageiros_subir_passageiro_empe_nao_disponive
 
 BOOST_AUTO_TEST_CASE(test_onibus_passageiros_descer_passageiro_onibus_vazio)
 {
-    Onibus onibus = Onibus::instantiate(2U, 1U, 1U);
+    Onibus onibus = Onibus::Inicializar(2U, 1U, 1U);
     BOOST_TEST_MESSAGE( "TEST CENÁRIO 9. O ônibus só deve descer um passageiro, ao parar num ponto, se houver pelo menos 1 passageiro a bordo" );
     BOOST_TEST ( onibus.PassageirosEmPe() == 0U );
     BOOST_TEST ( onibus.PassageirosSentados() == 0U );

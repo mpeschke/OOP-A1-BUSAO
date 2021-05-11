@@ -115,7 +115,7 @@ Onibus::Onibus(const unsigned int pontos, const unsigned int bancos, const unsig
 Onibus::~Onibus()
 {}
 
-Onibus Onibus::instantiate(const unsigned int pontos, const unsigned int bancos, const unsigned int empe)
+Onibus Onibus::Inicializar(const unsigned int pontos, const unsigned int bancos, const unsigned int empe)
 { return Onibus(pontos, bancos, empe); }
 
 } /* namespace BLL */
